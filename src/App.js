@@ -1,8 +1,9 @@
 import React from 'react'
+import "./index.css"
 
 function App() {
   return (
-    <div className="App">
+    <div>
      <h1>Social media</h1>
     </div>
   );
