@@ -9,29 +9,34 @@ import { formatDate } from "../utils/authUtils";
 export const posts = [
   {
     _id: uuid(),
-    content:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+    content:"Non programmers on my timeline. Attention After placing 100+ programmers i in top Indian startups, I am thinking of coming up with a program for business roles as well.Interested in helping me build this course? Join the telegram group (in next tweet)",
     likes: {
-      likeCount: 0,
+      likeCount: 4,
+      isLiked : false, 
       likedBy: [],
       dislikedBy: [],
     },
-    username: "adarshbalika",
+    comment : "", 
+    username: "Anshul Tamrakar",
+    img : "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.2.701769884.1684604185&semt=ais", 
+    bookmarked : false,
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
   {
     _id: uuid(),
-    content:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+    content:"Hello I am ALI ",
     likes: {
-      likeCount: 0,
+      likeCount: 4,
+      isLiked : false, 
       likedBy: [],
       dislikedBy: [],
     },
-    username: "shubhamsoni",
+    comment : "", 
+    username: "Ali Ratlamwala",
+    img : "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.2.701769884.1684604185&semt=ais", 
+    bookmarked : false,
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
-  
 ];

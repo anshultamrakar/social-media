@@ -1,0 +1,13 @@
+.Navbar{
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    left: 50px;
+    height: calc(100vh - 80px);
+}
+
+.Navbar_items{
+    list-style-type: none;
+}

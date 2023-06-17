@@ -1,0 +1,32 @@
+.Feed{
+   display: flex;
+   width: 50%;
+   margin: 30px;
+   flex-direction: column;
+   margin: 100px;
+}
+
+
+.Feed_Clicks{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.Feed_items{
+    background-color: aliceblue;
+}
+
+.Feed button{
+    
+}
+
+textarea{
+    width: 100%;
+    min-height: 50px;
+}
+
+.Feed_items{
+    list-style-type: none;
+}
