@@ -15,7 +15,7 @@ import {DataProvider} from './Context/DataContext';
 
 function App() {
   return (
-    <div className='App'>
+    <div>
       <DataProvider>
       <Routes>
       <Route path = "/register" element = {<Register/>}/>

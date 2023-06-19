@@ -1,43 +1,55 @@
 import React from "react";
-import axios from "axios"
+import axios from "axios";
 import { useEffect } from "react";
-import { AiOutlineHeart , AiFillHeart } from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { BiComment, BiShareAlt } from "react-icons/bi";
-import { BsBookmark , BsFillBookmarkFill } from "react-icons/bs";
+import { BsBookmark, BsFillBookmarkFill } from "react-icons/bs";
 import Loader from "../../Components/Loader/Loader";
 import { useContext } from "react";
 import DataContext from "../../Context/DataContext";
 import "./Feed.css";
 
 const Feed = () => {
-const {feeds , setFeeds ,isLoading , setIsloading , bookmark , setBookmarkFeed} = useContext(DataContext)
+  const {
+    feeds,
+    setFeeds,
+    isLoading,
+    setIsloading,
+    bookmark,
+    setBookmarkFeed,
+  } = useContext(DataContext);
 
-useEffect(() => {
-  getAllpostsHandler()
-}, []);
+  useEffect(() => {
+    getAllpostsHandler();
+  }, []);
 
+  const handleLike = (id) => {
+    const likedPosts = feeds.map((feed) =>
+      feed.id === id
+        ? { ...feed, likes: { ...feed.likes, isLiked: !feed.likes.isLiked } }
+        : feed
+    );
+    setFeeds(likedPosts);
+  };
 
-const handleLike = (id) => {
-  const likedPosts = feeds.map(feed => feed.id === id ? {...feed , likes : {...feed.likes , isLiked : !feed.likes.isLiked}} : feed)
-  setFeeds(likedPosts)
- }
+  const handleBookmark = (id) => {
+    const bookmarkFeed = feeds.map((feed) =>
+      feed.id === id ? { ...feed, bookmarked: !feed.bookmarked } : feed
+    );
+    setFeeds(bookmarkFeed);
+    const bookmarkPost = feeds.filter((feed) => feed.bookmarked === true);
+    console.log(bookmarkPost);
+  };
 
- const handleBookmark = (id) => {
-   const bookmarkFeed = feeds.map(feed => feed.id === id ? {...feed , bookmarked : !feed.bookmarked} : feed)
-   setFeeds(bookmarkFeed)
-   const bookmarkPost = feeds.filter(feed => feed.bookmarked === true)
-   console.log(bookmarkPost)
- }
-
-const getAllpostsHandler = async () => {
-  try {
-    const { data } = await axios.get("/api/posts");
-    setFeeds(data.posts);
-    setIsloading(false);
-  } catch (err) {
-    console.error(err);
-  }
-};
+  const getAllpostsHandler = async () => {
+    try {
+      const { data } = await axios.get("/api/posts");
+      setFeeds(data.posts);
+      setIsloading(false);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <div className="Feed">
@@ -45,22 +57,55 @@ const getAllpostsHandler = async () => {
         <Loader />
       ) : (
         <>
+         <div className="Feed_posting">
+          
           <textarea />
           <button>Post</button>
-          <h1>Latest posts</h1>
+         </div>
+          
+          <h2>Latest posts</h2>
           <ul className="Feed_items">
             {feeds.map((feed) => (
-              <li key={feed._id}>
-                <p>{feed.content}</p>
-                <ul className="Feed_Clicks">
-                  <li onClick={() => handleLike(feed.id)}>{feed.likes.isLiked ? <AiFillHeart/> : <AiOutlineHeart/>}</li>
-                  <li><BiComment /></li>
-                  <li><BiShareAlt /></li>
-                  <li onClick={() => handleBookmark(feed.id)}>
-                    {!feed.bookmarked ? <BsBookmark /> : <BsFillBookmarkFill/> }
-                  </li>
-                </ul>
-              </li>
+              <div className="Feed_post">
+                <li className="FeedList" key={feed._id}>
+                  <div className="profile_image">
+                    <img
+                      src= {feed.img}
+                      width="50"
+                      height="50"
+                    />
+                  </div>
+                  <div className="">
+                    <h4>
+                      {feed.username} <span>@anshultamrakar487</span>{" "}
+                      <span>1 min</span>
+                    </h4>
+                    <p>{feed.content}</p>
+                    <ul className="Feed_Clicks">
+                      <li onClick={() => handleLike(feed.id)}>
+                        {feed.likes.isLiked ? (
+                          <AiFillHeart />
+                        ) : (
+                          <AiOutlineHeart />
+                        )}
+                      </li>
+                      <li>
+                        <BiComment />
+                      </li>
+                      <li>
+                        <BiShareAlt />
+                      </li>
+                      <li onClick={() => handleBookmark(feed.id)}>
+                        {!feed.bookmarked ? (
+                          <BsBookmark />
+                        ) : (
+                          <BsFillBookmarkFill />
+                        )}
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </div>
             ))}
           </ul>
         </>

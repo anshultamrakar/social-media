@@ -20,7 +20,7 @@ const Navbar = () => {
       </ul>
      
       <div>
-        <h2>John Wick</h2>
+        <h2>Anshul Tamrakar</h2>
       </div>
     </div>
 

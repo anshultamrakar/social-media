@@ -3,7 +3,9 @@ import "./Header.css"
 
 const Header = () => {
   return (
-    <div>Social Snap</div>
+    <div>
+      <h1>Social Snap</h1>
+    </div>
   )
 }
 

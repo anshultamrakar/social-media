@@ -1,9 +1,15 @@
 .Feed{
    display: flex;
    width: 50%;
-   margin: 30px;
    flex-direction: column;
-   margin: 100px;
+}
+
+.Feed_posting{
+    padding: 2rem;
+}
+
+.Feed_posting button {
+    align-items: end;
 }
 
 
@@ -18,8 +24,22 @@
     background-color: aliceblue;
 }
 
-.Feed button{
-    
+.FeedList{
+  margin: 20px;
+  width: 900px;
+  background-color: papayawhip;
+  padding: 1rem;
+}
+
+
+.Feed_post{
+    display: flex;
+}
+
+.profile_image img {
+    border-radius: 50%;
+    width: 50%;
+    height: 50%;
 }
 
 textarea{
