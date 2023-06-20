@@ -18,7 +18,7 @@ export const posts = [
     },
     comment : "", 
     username: "Anshul Tamrakar",
-    img : "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.2.701769884.1684604185&semt=ais", 
+    img : "https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg?size=626&ext=jpg&ga=GA1.2.701769884.1684604185&semt=ais", 
     bookmarked : false,
     createdAt: formatDate(),
     updatedAt: formatDate(),

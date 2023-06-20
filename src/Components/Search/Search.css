@@ -1,5 +1,27 @@
 .Search{
-    margin: 50px;
+    margin-left: 50px;
     position: fixed;
     right: 50px;
+    gap: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.follow_people{
+    border: 1px solid black;
+    padding: 10px;
+    list-style-type: none;
+}
+
+.follow_list{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+  
+}
+
+.follow_list img {
+    border-radius: 50%;
 }

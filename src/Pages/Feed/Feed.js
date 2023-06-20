@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
@@ -10,36 +10,12 @@ import DataContext from "../../Context/DataContext";
 import "./Feed.css";
 
 const Feed = () => {
-  const {
-    feeds,
-    setFeeds,
-    isLoading,
-    setIsloading,
-    bookmark,
-    setBookmarkFeed,
-  } = useContext(DataContext);
-
+  const {feeds,setFeeds,isLoading,setIsloading , handleLike , handleBookmark , handleAddNewPost} = useContext(DataContext);
+   const [content , setContent] = useState("")
+   
   useEffect(() => {
     getAllpostsHandler();
   }, []);
-
-  const handleLike = (id) => {
-    const likedPosts = feeds.map((feed) =>
-      feed.id === id
-        ? { ...feed, likes: { ...feed.likes, isLiked: !feed.likes.isLiked } }
-        : feed
-    );
-    setFeeds(likedPosts);
-  };
-
-  const handleBookmark = (id) => {
-    const bookmarkFeed = feeds.map((feed) =>
-      feed.id === id ? { ...feed, bookmarked: !feed.bookmarked } : feed
-    );
-    setFeeds(bookmarkFeed);
-    const bookmarkPost = feeds.filter((feed) => feed.bookmarked === true);
-    console.log(bookmarkPost);
-  };
 
   const getAllpostsHandler = async () => {
     try {
@@ -58,11 +34,10 @@ const Feed = () => {
       ) : (
         <>
          <div className="Feed_posting">
-          
-          <textarea />
-          <button>Post</button>
+          <textarea placeholder="Write your post here" value = {content} onChange={(e) => setContent(e.target.value)} />
+          <br/>
+          <button onClick={handleAddNewPost}>Post</button>
          </div>
-          
           <h2>Latest posts</h2>
           <ul className="Feed_items">
             {feeds.map((feed) => (
@@ -71,13 +46,13 @@ const Feed = () => {
                   <div className="profile_image">
                     <img
                       src= {feed.img}
-                      width="50"
-                      height="50"
+                      width="40"
+                      height="40"
                     />
                   </div>
-                  <div className="">
+                  <div className="Feed_content">
                     <h4>
-                      {feed.username} <span>@anshultamrakar487</span>{" "}
+                      {feed.username} <span>@anshultamrakar487</span>
                       <span>1 min</span>
                     </h4>
                     <p>{feed.content}</p>

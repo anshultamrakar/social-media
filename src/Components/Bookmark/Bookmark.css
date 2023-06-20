@@ -1,7 +1,5 @@
 .Bookmark{
     display: flex;
     width: 50%;
-    margin: 30px;
     flex-direction: column;
-    margin: 100px;
 }

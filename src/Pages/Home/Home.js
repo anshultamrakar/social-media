@@ -29,6 +29,7 @@ const Home = () => {
         <>
          <Navbar/>
          <Outlet/>
+         <Search/>
         </>
       )}
     

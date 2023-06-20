@@ -53,7 +53,7 @@ const Register = () => {
        <input type = "password" placeholder='Confirm your password' value = {matchPwd} onChange={(e) => setMatchPwd(e.target.value)} /> 
        <button type = "submit">Sign up</button>
        <p>Already have a account ?</p>
-       <Link to ="/login">Sign in </Link>
+       <Link to ="/">Sign in </Link>
     </form>
       }
        
