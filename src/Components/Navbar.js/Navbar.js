@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Navbar.css"
-import {Link  } from "react-router-dom"
+import {Link , useNavigate } from "react-router-dom"
 import { AiOutlineHome } from "react-icons/ai";
 import {MdExplore} from "react-icons/md"
 import {BsFillBookmarkFill} from "react-icons/bs"
@@ -8,11 +8,13 @@ import {FiLogOut} from "react-icons/fi"
 import {CgProfile} from "react-icons/cg"
 
 const Navbar = () => {
+  let navigate = useNavigate()
 
   const handleLogout = () => {
-    console.log("logout kro be")
+     localStorage.removeItem("token")
+     navigate("/")
   }
-  
+
   return (
     <div className='Navbar'>
       <ul className='Navbar_items'>
