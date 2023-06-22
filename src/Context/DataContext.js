@@ -1,6 +1,8 @@
 import { createContext } from "react";
 import axios from "react"
 import { useState, useEffect } from "react";
+import { BiLike } from "react-icons/bi";
+import {  toast } from 'react-toastify';
 
 const DataContext = createContext()
 
@@ -9,20 +11,32 @@ const DataContext = createContext()
   const [feeds, setFeeds] = useState([]);
   const [bookmark , setBookmarkFeed] = useState([])
   const [isLoading, setIsloading] = useState(true);
-
+  const [content , setContent] = useState("")
+  
   
   const handleAddNewPost = async() => {
     try{
-      const response = await axios.post("/api/posts")
-      console.log(response)
+    const response = await axios.post("/api/posts" , )
     }catch(err){
      console.log(err)
     }
    }
+
  
-   const handleLike = (id) => {
-     const likedPosts = feeds.map((feed) => feed.id === id? { ...feed, likes: {...feed.likes, isLiked: !feed.likes.isLiked } }: feed);
-     setFeeds(likedPosts);
+ 
+   const handleLike = async(postId) => {
+     try{
+      const token = localStorage.getItem("token");
+      const auth = {
+        headers: {
+          authorization: token,
+        },
+      };
+    const response = await axios.post(`/api/like/${postId}` , {} , auth)
+    console.log(response)
+     }catch(err){
+      console.log(err)
+     }
    };
  
    
@@ -33,9 +47,12 @@ const DataContext = createContext()
      setBookmarkFeed(bookmarkPost)
    };
 
+
+ 
+
   return(
     <DataContext.Provider value = {{feeds , isLoading, handleLike , handleBookmark , handleAddNewPost,
-    setIsloading , setFeeds , bookmark , setBookmarkFeed}}>
+    setIsloading , setFeeds , bookmark , setBookmarkFeed , content , setContent}}>
       {children}
     </DataContext.Provider>
   )

@@ -10,3 +10,10 @@
 .Navbar_items{
     list-style-type: none;
 }
+
+.user_profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap : 10px;
+}

@@ -3,8 +3,8 @@ import "./index.css"
 import {Routes , Route } from "react-router-dom"
 import Register from './Pages/Authentication/Register';
 import Login from "./Pages/Authentication/Login"
-import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 import Feed from './Pages/Feed/Feed';
 import Home from "./Pages/Home/Home"
 import Explore from './Components/Explore/Explore';
@@ -28,6 +28,19 @@ function App() {
         <Route path = "/home/profile" element = {<UserProfile/>}/>
       </Route>
      </Routes>
+     <ToastContainer
+        theme="colored"
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        style={{ fontSize: "1.4rem" }}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
      </DataProvider>
     </div>
   );

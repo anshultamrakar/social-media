@@ -2,7 +2,7 @@
     margin-left: 50px;
     position: fixed;
     right: 50px;
-    gap: 150px;
+    gap: 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

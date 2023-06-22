@@ -22,7 +22,8 @@ const Register = () => {
        firstname , 
        lastname,
     })
-    console.log(data.encodedToken)
+    const accessToken = data.encodedToken
+   localStorage.setItem("token", accessToken);
    }catch(err){
     console.error(err)
    }
@@ -42,7 +43,7 @@ const Register = () => {
       <form onSubmit = {signupHandler} className='register_form'>
       <h1>Sign up</h1>
        <label>First name :</label>
-       <input type = "text" placeholder='Enter first name' autoComplete='off' value = {firstname} onChange={(e) => setFirstname(e.target.value)} autoFocus />
+       <input type = "text" placeholder='Enter first name' autoComplete='off' value = {firstname} onChange={(e) => setFirstname(e.target.value)}  autoFocus required />
        <label>Last name : </label>
        <input  type = "text" placeholder='Enter last name' value = {lastname} onChange={(e) => setLastname(e.target.value)}/>
        <label>Email :</label>

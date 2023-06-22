@@ -5,17 +5,20 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { BiComment, BiShareAlt } from "react-icons/bi";
 import { BsBookmark, BsFillBookmarkFill } from "react-icons/bs";
 import Loader from "../../Components/Loader/Loader";
+import AddPost from "../AddPost/AddPost";
 import { useContext } from "react";
 import DataContext from "../../Context/DataContext";
 import "./Feed.css";
 
 const Feed = () => {
-  const {feeds,setFeeds,isLoading,setIsloading , handleLike , handleBookmark , handleAddNewPost} = useContext(DataContext);
-   const [content , setContent] = useState("")
+  const {feeds,setFeeds,isLoading,setIsloading , handleLike , handleBookmark , handleAddNewPost , setContent ,content} = useContext(DataContext);
+
    
   useEffect(() => {
     getAllpostsHandler();
   }, []);
+
+
 
   const getAllpostsHandler = async () => {
     try {
@@ -33,11 +36,10 @@ const Feed = () => {
         <Loader />
       ) : (
         <>
-         <div className="Feed_posting">
-          <textarea placeholder="Write your post here" value = {content} onChange={(e) => setContent(e.target.value)} />
-          <br/>
-          <button onClick={handleAddNewPost}>Post</button>
-         </div>
+        <div className="Feed_posting">
+        <AddPost/>
+        </div>
+        
           <h2>Latest posts</h2>
           <ul className="Feed_items">
             {feeds.map((feed) => (
@@ -57,7 +59,7 @@ const Feed = () => {
                     </h4>
                     <p>{feed.content}</p>
                     <ul className="Feed_Clicks">
-                      <li onClick={() => handleLike(feed.id)}>
+                      <li onClick={() => handleLike(feed._id)}>
                         {feed.likes.isLiked ? (
                           <AiFillHeart />
                         ) : (
