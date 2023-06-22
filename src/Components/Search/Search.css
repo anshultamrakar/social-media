@@ -9,8 +9,12 @@
     align-items: center;
 }
 .follow_people{
+    min-height: 230px;
+    display: flex;
+    flex-direction: column;
     border: 1px solid black;
-    padding: 10px;
+    padding: 15px;
+    gap:25px;
     list-style-type: none;
 }
 

@@ -12,7 +12,7 @@ const Navbar = () => {
   const handleLogout = () => {
     console.log("logout kro be")
   }
-
+  
   return (
     <div className='Navbar'>
       <ul className='Navbar_items'>

@@ -31,7 +31,6 @@ const Search = () => {
               <h4>@anshul487</h4>
               <button>Follow</button>
             </li>
-            
           </ul>
         </div>
     </div>
