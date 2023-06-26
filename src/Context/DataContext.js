@@ -25,18 +25,19 @@ const DataContext = createContext()
  
  
    const handleLike = async(postId) => {
-     try{
+    try{
       const token = localStorage.getItem("token");
+      console.log(token)
       const auth = {
         headers: {
-          authorization: token,
-        },
-      };
-    const response = await axios.post(`/api/like/${postId}` , {} , auth)
-    console.log(response)
-     }catch(err){
+          authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiIxZjY5YjM5MC0zZDQzLTRlYTQtOTM1Ny02YjM4YzA4ODI2Y2UiLCJ1c2VybmFtZSI6ImFuc2h1bEBnbWFpbC5jb20ifQ.yDVrb2vO2sW4aVsX7mSwFsR7FPdB3EN-lRaib6vTjdw",
+        }
+      }
+      const response = await axios.post(`/api/like/${postId}` , {} , auth)
+      console.log(response)
+    }catch(err){
       console.log(err)
-     }
+    }
    };
  
    

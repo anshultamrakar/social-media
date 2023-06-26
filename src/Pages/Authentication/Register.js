@@ -22,8 +22,7 @@ const Register = () => {
        firstname , 
        lastname,
     })
-    const accessToken = data.encodedToken
-   localStorage.setItem("token", accessToken);
+    console.log(data)
    }catch(err){
     console.error(err)
    }
@@ -45,13 +44,13 @@ const Register = () => {
        <label>First name :</label>
        <input type = "text" placeholder='Enter first name' autoComplete='off' value = {firstname} onChange={(e) => setFirstname(e.target.value)}  autoFocus required />
        <label>Last name : </label>
-       <input  type = "text" placeholder='Enter last name' value = {lastname} onChange={(e) => setLastname(e.target.value)}/>
+       <input  type = "text" placeholder='Enter last name' value = {lastname} onChange={(e) => setLastname(e.target.value)} required/>
        <label>Email :</label>
-       <input type = "text" placeholder='Enter email' value = {username} onChange={(e) => setUsername(e.target.value)}/>
+       <input type = "text" placeholder='Enter email' value = {username} onChange={(e) => setUsername(e.target.value)} required/>
        <label>Password :</label>
-       <input  type = "password" placeholder='Enter password' value = {pwd} onChange={(e) => setPwd(e.target.value)}/>
+       <input  type = "password" placeholder='Enter password' value = {pwd} onChange={(e) => setPwd(e.target.value)} required/>
        <label>Confirm password :</label>
-       <input type = "password" placeholder='Confirm your password' value = {matchPwd} onChange={(e) => setMatchPwd(e.target.value)} /> 
+       <input type = "password" placeholder='Confirm your password' value = {matchPwd} onChange={(e) => setMatchPwd(e.target.value)}required /> 
        <button type = "submit">Sign up</button>
        <p>Already have a account ?</p>
        <Link to ="/">Sign in </Link>

@@ -22,7 +22,8 @@ const Home = () => {
   }, []);
 
   return (
-    <div className='Home'>
+    <>
+       <div className='Home'>
       {isLoading ? 
 <Loader/>
       :(
@@ -34,6 +35,8 @@ const Home = () => {
       )}
     
     </div>
+    </>
+   
   )
 }
 

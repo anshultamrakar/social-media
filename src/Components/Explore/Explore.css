@@ -1,0 +1,11 @@
+.explore{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+}
+
+.explore_tabs{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}

@@ -9,6 +9,7 @@ import AddPost from "../AddPost/AddPost";
 import { useContext } from "react";
 import DataContext from "../../Context/DataContext";
 import "./Feed.css";
+import { Link } from "react-router-dom";
 
 const Feed = () => {
   const {feeds,setFeeds,isLoading,setIsloading , handleLike , handleBookmark , handleAddNewPost , setContent ,content} = useContext(DataContext);

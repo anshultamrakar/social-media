@@ -1,10 +1,10 @@
 import React from 'react'
-
+import "./Header.css"
 
 const Header = () => {
   return (
-    <div className='myHeader'>
-      <h1>Social Snap</h1>
+    <div >
+   
     </div>
   )
 }
