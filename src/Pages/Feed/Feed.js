@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React  from "react";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect , useState } from "react";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { BiComment, BiShareAlt } from "react-icons/bi";
 import { BsBookmark, BsFillBookmarkFill } from "react-icons/bs";
@@ -12,12 +12,25 @@ import "./Feed.css";
 import { Link } from "react-router-dom";
 
 const Feed = () => {
-  const {feeds,setFeeds,isLoading,setIsloading , handleLike , handleBookmark , handleAddNewPost , setContent ,content} = useContext(DataContext);
+  const {feeds,setFeeds,isLoading,setIsloading , handleBookmark , handleAddNewPost , setContent ,content} = useContext(DataContext);
+  const [users, setUsers] = useState([])
+
 
    
   useEffect(() => {
     getAllpostsHandler();
+    getAllUsersHandler()
   }, []);
+
+
+  const getAllUsersHandler = async() => {
+    try{
+     const {data} = await axios.get("/api/users")
+     setUsers(data.users , "users")
+    }catch(err){
+      console.log(err)
+    }
+  }
 
 
 
@@ -30,6 +43,25 @@ const Feed = () => {
       console.error(err);
     }
   };
+
+
+  const handleLike = async(postId) => {
+   const likedPost = feeds.find(feed => feed._id === postId)?.likes?.likedBy
+   
+
+     try{
+      const token = localStorage.getItem("token");
+      const auth = {
+        headers: {
+          authorization: token,
+        },
+      };
+      const {data} = await axios.post(`/api/posts/like/${postId}` , {} , auth )
+      console.log(data)
+     }catch(err){
+      console.log(err)
+     }
+  }
 
   return (
     <div className="Feed">

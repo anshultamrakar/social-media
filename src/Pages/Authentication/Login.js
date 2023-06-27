@@ -6,14 +6,14 @@ import {Link , useNavigate} from "react-router-dom"
 
 const Login = () => {
     const navigate = useNavigate();
-    const [email , setEmail] = useState("")
+    const [username , setUsername] = useState("")
     const [pwd , setPwd] = useState("")
  
     const loginHandler = async(e) => {
       e.preventDefault()
       try{
-         const {data} =  await axios.post("/auth/login" , {
-          email : email , 
+         const {data} =  await axios.post("/api/auth/login" , {
+          username : username , 
           pwd : pwd
          })
          console.log(data)
@@ -25,8 +25,8 @@ const Login = () => {
    
     const handleGuestLogin = (e) => {
         e.preventDefault()
-        setEmail("adarshbalika")
-        setPwd("adarshbalika123")
+        setUsername("anshul")
+        setPwd("anshul@123")
         navigate("/home")
     }
 
@@ -34,8 +34,8 @@ const Login = () => {
     <div className='Login'>
        <form onSubmit={loginHandler} className='input_form'>
         <h1>Sign In</h1>
-        <label>Email :</label>
-        <input type = "text" placeholder='Enter email address' autoComplete='off' value = {email} onChange={(e) => setEmail(e.target.value)} autoFocus/>
+        <label>Username :</label>
+        <input type = "text" placeholder='Enter username' autoComplete='off' value = {username} onChange={(e) => setUsername(e.target.value)} autoFocus/>
         <label>Password : </label>
         <input type = "password" placeholder = "Enter your password" value = {pwd} onChange={(e) => setPwd(e.target.value)}/>
         <button type='submit' autoComplete='off'  value = {pwd} onChange={(e) => setPwd(e.target.value)}>Login </button>

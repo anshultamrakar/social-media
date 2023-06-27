@@ -22,7 +22,8 @@ const Register = () => {
        firstname , 
        lastname,
     })
-    console.log(data)
+     console.log(data)
+     localStorage.setItem("token" , data.encodedToken)
    }catch(err){
     console.error(err)
    }
@@ -45,8 +46,8 @@ const Register = () => {
        <input type = "text" placeholder='Enter first name' autoComplete='off' value = {firstname} onChange={(e) => setFirstname(e.target.value)}  autoFocus required />
        <label>Last name : </label>
        <input  type = "text" placeholder='Enter last name' value = {lastname} onChange={(e) => setLastname(e.target.value)} required/>
-       <label>Email :</label>
-       <input type = "text" placeholder='Enter email' value = {username} onChange={(e) => setUsername(e.target.value)} required/>
+       <label>Username :</label>
+       <input type = "text" placeholder='Enter username' value = {username} onChange={(e) => setUsername(e.target.value)} required/>
        <label>Password :</label>
        <input  type = "password" placeholder='Enter password' value = {pwd} onChange={(e) => setPwd(e.target.value)} required/>
        <label>Confirm password :</label>

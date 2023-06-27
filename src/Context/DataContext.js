@@ -12,33 +12,18 @@ const DataContext = createContext()
   const [bookmark , setBookmarkFeed] = useState([])
   const [isLoading, setIsloading] = useState(true);
   const [content , setContent] = useState("")
-  
+
+
+
+
+
   
   const handleAddNewPost = async() => {
-    try{
-    const response = await axios.post("/api/posts" , )
-    }catch(err){
-     console.log(err)
-    }
+   console.log("hello")
    }
 
  
- 
-   const handleLike = async(postId) => {
-    try{
-      const token = localStorage.getItem("token");
-      console.log(token)
-      const auth = {
-        headers: {
-          authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiIxZjY5YjM5MC0zZDQzLTRlYTQtOTM1Ny02YjM4YzA4ODI2Y2UiLCJ1c2VybmFtZSI6ImFuc2h1bEBnbWFpbC5jb20ifQ.yDVrb2vO2sW4aVsX7mSwFsR7FPdB3EN-lRaib6vTjdw",
-        }
-      }
-      const response = await axios.post(`/api/like/${postId}` , {} , auth)
-      console.log(response)
-    }catch(err){
-      console.log(err)
-    }
-   };
+
  
    
    const handleBookmark = (id) => {
@@ -52,7 +37,7 @@ const DataContext = createContext()
  
 
   return(
-    <DataContext.Provider value = {{feeds , isLoading, handleLike , handleBookmark , handleAddNewPost,
+    <DataContext.Provider value = {{feeds , isLoading , handleBookmark , handleAddNewPost,
     setIsloading , setFeeds , bookmark , setBookmarkFeed , content , setContent}}>
       {children}
     </DataContext.Provider>
