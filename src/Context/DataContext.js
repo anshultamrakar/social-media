@@ -13,19 +13,12 @@ const DataContext = createContext()
   const [isLoading, setIsloading] = useState(true);
   const [content , setContent] = useState("")
 
-
-
-
-
   
   const handleAddNewPost = async() => {
    console.log("hello")
    }
 
- 
 
- 
-   
    const handleBookmark = (id) => {
      const bookmarkFeed = feeds.map((feed) => feed.id === id ? { ...feed, bookmarked: !feed.bookmarked } : feed);
      setFeeds(bookmarkFeed);
