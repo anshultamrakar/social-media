@@ -12,13 +12,15 @@ import Header from './Components/Header/Header';
 import Bookmark from './Components/Bookmark/Bookmark';
 import UserProfile from './Pages/UserProfile/UserProfile';
 import {DataProvider} from './Context/DataContext';
+import AuthProvider from './Context/AuthContext';
 
 
 function App() {
   return (
     <div>
       <DataProvider>
-      <Routes>
+        <AuthProvider>
+        <Routes>
       <Route path = "/register" element = {<Register/>}/>
       <Route path = "/" element = {<Login/>}/>
       <Route path = "/feed" element = {<Feed/>}/>
@@ -42,7 +44,7 @@ function App() {
         draggable
         pauseOnHover
       />
-
+       </AuthProvider>
      </DataProvider>
     </div>
   );

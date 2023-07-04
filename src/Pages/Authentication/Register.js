@@ -1,34 +1,14 @@
 import React from 'react'
 import { useState  } from 'react'
+import { useContext } from 'react'
+import { AuthContext } from '../../Context/AuthContext'
 import "./Register.css"
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 const Register = () => {
-  const [firstname , setFirstname] = useState("")
-  const [validName , setValidName] = useState("")
-  const [lastname , setLastname] = useState("")
-  const [username , setUsername] = useState("")
-  const [pwd , setPwd] = useState("")
-  const [matchPwd , setMatchPwd] = useState("")
-  const [success , setSuccess] = useState(false)
- 
-  const signupHandler = async (e) => {
-   e.preventDefault()
-   try{
-    const {data} = await axios.post("/api/auth/signup", {
-       username, 
-       pwd,
-       firstname , 
-       lastname,
-    })
-     console.log(data)
-     localStorage.setItem("token" , data.encodedToken)
-   }catch(err){
-    console.error(err)
-   }
+  const {handleSignUp , matchPwd , setMatchPwd , firstname , setFirstname , lastname ,setLastname , username , setUsername , setPassword ,  password , success   } = useContext(AuthContext)
 
-  }
 
   return (
     <div className='Register'>
@@ -40,7 +20,7 @@ const Register = () => {
        </p>
       </>
       :
-      <form onSubmit = {signupHandler} className='register_form'>
+      <form onSubmit = {handleSignUp} className='register_form'>
       <h1>Sign up</h1>
        <label>First name :</label>
        <input type = "text" placeholder='Enter first name' autoComplete='off' value = {firstname} onChange={(e) => setFirstname(e.target.value)}  autoFocus required />
@@ -49,7 +29,7 @@ const Register = () => {
        <label>Username :</label>
        <input type = "text" placeholder='Enter username' value = {username} onChange={(e) => setUsername(e.target.value)} required/>
        <label>Password :</label>
-       <input  type = "password" placeholder='Enter password' value = {pwd} onChange={(e) => setPwd(e.target.value)} required/>
+       <input  type = "password" placeholder='Enter password' value = {password} onChange={(e) => setPassword(e.target.value)} required/>
        <label>Confirm password :</label>
        <input type = "password" placeholder='Confirm your password' value = {matchPwd} onChange={(e) => setMatchPwd(e.target.value)}required /> 
        <button type = "submit">Sign up</button>
