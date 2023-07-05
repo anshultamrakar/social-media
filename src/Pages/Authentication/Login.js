@@ -18,9 +18,8 @@ const Login = () => {
           username, 
           password
          })
-         if(response?.data?.encodedToken){
-          navigate("/home")
-         }
+         const accessToken = response?.data?.encodedToken
+         localStorage.setItem("token" , accessToken)
       }catch(err){
         console.error(err)
       }
@@ -29,6 +28,7 @@ const Login = () => {
     const handleGuestLogin = () => {
      setUsername("anshul")
      setPassword("anshul@123")
+     navigate("/home")
     }
   
   return (

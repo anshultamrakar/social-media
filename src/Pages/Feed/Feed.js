@@ -46,18 +46,15 @@ const Feed = () => {
 
 
   const handleLike = async(postId) => {
-   const likedPost = feeds.find(feed => feed._id === postId)?.likes?.likedBy
-   
-
      try{
       const token = localStorage.getItem("token");
-      const auth = {
-        headers: {
-          authorization: token,
-        },
-      };
-      const {data} = await axios.post(`/api/posts/like/${postId}` , {} , auth )
-      console.log(data)
+      const response = await axios.post(`/api/posts/like/${postId}` , {} , {
+        headers : {
+          authorization: token
+        }
+      })
+      console.log(response?.data?.posts)
+     
      }catch(err){
       console.log(err)
      }
