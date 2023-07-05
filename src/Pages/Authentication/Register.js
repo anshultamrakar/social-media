@@ -3,12 +3,10 @@ import { useState  } from 'react'
 import { useContext } from 'react'
 import { AuthContext } from '../../Context/AuthContext'
 import "./Register.css"
-import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 const Register = () => {
   const {handleSignUp , matchPwd , setMatchPwd , firstname , setFirstname , lastname ,setLastname , username , setUsername , setPassword ,  password , success   } = useContext(AuthContext)
-
 
   return (
     <div className='Register'>

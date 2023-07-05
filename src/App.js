@@ -8,7 +8,6 @@ import "react-toastify/dist/ReactToastify.min.css";
 import Feed from './Pages/Feed/Feed';
 import Home from "./Pages/Home/Home"
 import Explore from './Components/Explore/Explore';
-import Header from './Components/Header/Header';
 import Bookmark from './Components/Bookmark/Bookmark';
 import UserProfile from './Pages/UserProfile/UserProfile';
 import {DataProvider} from './Context/DataContext';
