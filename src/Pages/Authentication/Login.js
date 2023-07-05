@@ -9,7 +9,7 @@ const Login = () => {
     const navigate = useNavigate();
     const [username , setUsername] = useState("")
     const [password , setPassword] = useState("")
-    const [showPassword , setShowPassword] = useState("password")
+    const [showPassword , setShowPassword] = useState(false)
  
     const loginHandler = async(e) => {
       e.preventDefault()
@@ -39,8 +39,8 @@ const Login = () => {
         <input type = "text" placeholder='Enter username' autoComplete='off' value = {username} onChange={(e) => setUsername(e.target.value)} autoFocus/>
         <label>Password : </label>
         <div className='password'>
-        <input type = {showPassword} placeholder = "Enter your password" value = {password} onChange={(e) => setPassword(e.target.value)}/>
-        <button onClick={() => setShowPassword("text")}><AiFillEye/></button>
+        <input type = {!showPassword ? "password" : "text"} placeholder = "Enter your password" value = {password} onChange={(e) => setPassword(e.target.value)}/>
+        <button onClick={() => setShowPassword(!showPassword)}>{showPassword ? <AiFillEye/> : <AiFillEyeInvisible/>}</button>
         </div>
         
         <button type='submit' autoComplete='off'  value = {password} onChange={(e) => setPassword(e.target.value)}>Login </button>
