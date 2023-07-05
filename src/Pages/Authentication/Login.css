@@ -30,3 +30,10 @@
     font-weight: bold;
     font-style: inherit;
 }
+
+.password{
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+}
